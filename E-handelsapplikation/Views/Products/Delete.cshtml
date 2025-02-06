@@ -1,0 +1,22 @@
+﻿@model E_handelsapplikation.Models.Product
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<!-- Vy för att ta bort produkt -->
+<div class="container mt-4">
+    <h2 class="text-center text-danger">Bekräfta radering</h2>
+    <div class="alert alert-warning mt-4">
+        <p>Är du säker på att du vill radera följande produkt?</p>
+        <h4>@Model.Name</h4>
+        <p><strong>Beskrivning:</strong> @Model.Description</p>
+        <p><strong>Pris:</strong> @Model.Price.ToString("C")</p>
+        <p><strong>Kategori:</strong> @Model.Category</p>
+    </div>
+    <form asp-action="Delete" asp-route-id="@Model.Id" method="post">
+        <button type="submit" class="btn btn-danger">Radera</button>
+        <a asp-action="Index" class="btn btn-secondary">Avbryt</a>
+    </form>
+</div>
+

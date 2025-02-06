@@ -1,0 +1,26 @@
+﻿@model E_handelsapplikation.Models.Review
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!-- Vy för att se dtealjer om recension -->
+<div class="container mt-5">
+    <h2>@Model.ProductName - Recension av @Model.ReviewerName</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <dl class="row">
+                <dt class="col-sm-3">Produktnamn:</dt>
+                <dd class="col-sm-9">@Model.ProductName</dd>
+                <dt class="col-sm-3">Recensent:</dt>
+                <dd class="col-sm-9">@Model.ReviewerName</dd>
+                <dt class="col-sm-3">Kommentar:</dt>
+                <dd class="col-sm-9">@Model.Comment</dd>
+                <dt class="col-sm-3">Betyg:</dt>
+                <dd class="col-sm-9">@Model.Rating</dd>
+            </dl>
+        </div>
+    </div>
+    <a href="@Url.Action("Index", "Reviews")" class="btn btn-primary">Tillbaka till listan</a>
+</div>
+

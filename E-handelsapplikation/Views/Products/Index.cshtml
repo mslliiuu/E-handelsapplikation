@@ -1,0 +1,43 @@
+﻿@model E_handelsapplikation.ViewModels.ProductViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Vy för att se översikt av produkter -->
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Produkter</h2>
+    <h4>Välkommen till tjänsten för produkthantering.</h4>
+
+    <!-- Lokala produkter -->
+    <h3>Lokala produkter</h3>
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Produktnamn</th>
+                <th>Beskrivning</th>
+                <th>Pris</th>
+                <th>Kategori</th>
+                <th>Åtgärder</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.LocalProducts)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    <td>@item.Price.ToString("C")</td>
+                    <td>@item.Category</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.Id">Redigera</a>
+                        <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id">Radera</a>
+                        <a class="btn btn-secondary btn-sm" asp-action="Details" asp-route-id="@item.Id">Detaljer</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a class="btn btn-success" asp-action="Create">Lägg till ny produkt</a>
+</div>

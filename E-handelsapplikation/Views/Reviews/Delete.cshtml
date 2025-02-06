@@ -1,0 +1,17 @@
+﻿@model E_handelsapplikation.Models.Review
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<!-- Vy för att ta bort recension -->
+<div class="container mt-5">
+    <h2>Vill du ta bort recensionen för @Model.ProductName?</h2>
+    <p>Recensionen av @Model.ReviewerName kommer att tas bort permanent.</p>
+    <form asp-action="DeleteConfirmed" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Ta bort</button>
+        <a href="@Url.Action("Index", "Reviews")" class="btn btn-secondary">Avbryt</a>
+    </form>
+</div>
+

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<E_handelsapplikation.Models.Review>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Vy för att se översikt av recension -->
+<div class="container mt-5">
+    <h2>Alla Recensioner</h2>
+    <p>
+        <a href="@Url.Action("Create", "Reviews")" class="btn btn-primary">Lägg till ny recension</a>
+    </p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Produktnamn</th>
+                <th>Recensent</th>
+                <th>Betyg</th>
+                <th>Åtgärder</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var review in Model)
+        {
+            <tr>
+                <td>@review.ProductName</td>
+                <td>@review.ReviewerName</td>
+                <td>@review.Rating</td>
+                <td>
+                        <a href="@Url.Action("Details", "Reviews", new { id = review.Id })" class="btn btn-secondary btn-sm">Visa</a>
+                        <a href="@Url.Action("Edit", "Reviews", new { id = review.Id })" class="btn btn-primary btn-sm">Redigera</a>
+                    <a href="@Url.Action("Delete", "Reviews", new { id = review.Id })" class="btn btn-danger btn-sm">Ta bort</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

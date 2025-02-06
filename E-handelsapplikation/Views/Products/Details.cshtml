@@ -1,0 +1,24 @@
+﻿@model E_handelsapplikation.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!-- Vy för att kolla detaljer om produkt -->
+<div class="container mt-4">
+    <h2 class="text-center">Produktdetaljer</h2>
+    <div class="card mt-4">
+        <div class="card-header">
+            @Model.Name
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Pris: @Model.Price.ToString("C")</h5>
+            <p class="card-text">@Model.Description</p>
+            <p class="card-text"><strong>Kategori:</strong> @Model.Category</p>
+        </div>
+        <div class="card-footer text-end">
+            <a asp-action="Index" class="btn btn-secondary">Tillbaka</a>
+        </div>
+    </div>
+</div>
+

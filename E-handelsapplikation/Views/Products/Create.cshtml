@@ -1,0 +1,31 @@
+﻿@model E_handelsapplikation.Models.Product
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!-- Vy för att skapa produkt -->
+<div class="container mt-4">
+    <h2 class="text-center">Lägg till ny produkt</h2>
+    <form asp-action="Create" class="mt-4">
+        <div class="mb-3">
+            <label for="Name" class="form-label">Produktnamn</label>
+            <input type="text" class="form-control" id="Name" name="Name" required />
+        </div>
+        <div class="mb-3">
+            <label for="Description" class="form-label">Beskrivning</label>
+            <textarea class="form-control" id="Description" name="Description" rows="3"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="Price" class="form-label">Pris</label>
+            <input type="number" class="form-control" id="Price" name="Price" step="0.01" />
+        </div>
+        <div class="mb-3">
+            <label for="Category" class="form-label">Kategori</label>
+            <input type="text" class="form-control" id="Category" name="Category" />
+        </div>
+        <button type="submit" class="btn btn-success">Spara</button>
+        <a asp-action="Index" class="btn btn-secondary">Tillbaka</a>
+    </form>
+</div>
+

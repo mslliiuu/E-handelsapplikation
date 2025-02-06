@@ -1,0 +1,31 @@
+﻿@model E_handelsapplikation.Models.Review
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!-- Vy för att skapa recension -->
+<div class="container mt-5">
+    <h2>Skapa en ny recension</h2>
+    <form asp-action="Create">
+        <div class="form-group">
+            <label for="ProductName">Produktnamn</label>
+            <input type="text" class="form-control" id="ProductName" name="ProductName" value="@Model.ProductName" required>
+        </div>
+        <div class="form-group">
+            <label for="ReviewerName">Recensentens namn</label>
+            <input type="text" class="form-control" id="ReviewerName" name="ReviewerName" value="@Model.ReviewerName" required>
+        </div>
+        <div class="form-group">
+            <label for="Rating">Betyg (1-5)</label>
+            <input type="number" class="form-control" id="Rating" name="Rating" value="@Model.Rating" min="1" max="5" required>
+        </div>
+        <div class="form-group">
+            <label for="Comment">Kommentar</label>
+            <textarea class="form-control" id="Comment" name="Comment" rows="3" required>@Model.Comment</textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Skapa Recension</button>
+        <a href="@Url.Action("Index", "Reviews")" class="btn btn-secondary">Avbryt</a>
+    </form>
+</div>
+

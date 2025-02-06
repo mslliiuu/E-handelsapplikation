@@ -1,0 +1,28 @@
+﻿@model E_handelsapplikation.Models.Review
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<!-- Vy för att redigera recension -->
+<div class="container mt-5">
+    <h2>Redigera recension för @Model.ProductName</h2>
+    <form asp-action="Edit">
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label for="ProductName">Produktnamn</label>
+            <input type="text" class="form-control" id="ProductName" name="ProductName" value="@Model.ProductName" required>
+        </div>
+        <div class="form-group">
+            <label for="ReviewerName">Recensentens namn</label>
+            <input type="text" class="form-control" id="ReviewerName" name="ReviewerName" value="@Model.ReviewerName" required>
+        </div>
+        <div class="form-group">
+            <label for="Comment">Kommentar</label>
+            <textarea class="form-control" id="Comment" name="Comment" rows="3" required>@Model.Comment</textarea>
+        </div>
+        <button type="submit" class="btn btn-warning">Uppdatera Recension</button>
+        <a href="@Url.Action("Index", "Reviews")" class="btn btn-secondary">Avbryt</a>
+    </form>
+</div>
+

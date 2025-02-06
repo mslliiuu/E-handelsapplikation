@@ -1,0 +1,30 @@
+﻿@model E_handelsapplikation.Models.Product
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<!-- Vy för att redigera produkt -->
+<div class="container mt-4">
+    <h2 class="text-center">Redigera produkt</h2>
+    <form asp-action="Edit" asp-route-id="@Model.Id" class="mt-4">
+        <div class="mb-3">
+            <label for="Name" class="form-label">Produktnamn</label>
+            <input type="text" class="form-control" id="Name" name="Name" value="@Model.Name" required />
+        </div>
+        <div class="mb-3">
+            <label for="Description" class="form-label">Beskrivning</label>
+            <textarea class="form-control" id="Description" name="Description" rows="3">@Model.Description</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="Price" class="form-label">Pris</label>
+            <input type="number" class="form-control" id="Price" name="Price" value="@Model.Price" step="0.01" />
+        </div>
+        <div class="mb-3">
+            <label for="Category" class="form-label">Kategori</label>
+            <input type="text" class="form-control" id="Category" name="Category" value="@Model.Category" />
+        </div>
+        <button type="submit" class="btn btn-success">Spara ändringar</button>
+        <a asp-action="Index" class="btn btn-secondary">Avbryt</a>
+    </form>
+</div>
